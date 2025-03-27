@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { watchListContext } from "../context/watchListProvider";
 
 const genreIds = {
   28: "Action",
@@ -22,7 +23,8 @@ const genreIds = {
   37: "Western",
 };
 
-const WatchListPage = ({ watchList }) => {
+const WatchListPage = () => {
+  const { watchList } = useContext(watchListContext);
   const [list, setList] = useState([]);
 
   const handleSearch = (e) => {
